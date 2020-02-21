@@ -33,4 +33,14 @@ export class ChatService {
     // esto regresa un observable que escucha un mensaje privado
     return this.wsService.listen('mensaje-privado');
   }
+
+
+  // evento que va estar pendiente de los cambios
+  getUsuariosActivos() {
+    return this.wsService.listen('usuarios-activos');
+  }
+
+  emitirUsuariosActivos(){
+    this.wsService.emit('obtener-usuarios');
+  }
 }
